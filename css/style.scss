@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+#game__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(180, 83%, 93%);
+    width: 100%;
+    height: 100vh;
+
+    & .game__space {
+        width: 400px;
+        padding: 0px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 15px;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.322);
+        
+        & h1 {
+            padding: 10px 0 5px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        & p {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: rgba(253, 21, 21, 0.781);
+        } 
+
+        & .button__box {
+            & #replay__button {
+                padding: 8px 15px;
+                background-color: #66ccff5d;
+                border: none;
+                box-shadow: 0 0 5px 0 rgba(2, 2, 2, 0.5);
+                font-size: 12px;
+                font-weight: 700;   
+                text-transform: uppercase;
+                border-radius: 5px;
+                margin-bottom: 10px;    
+                display: none;
+                &.show  {
+                    display: inline-block;
+                }
+            }
+        }
+        
+        & #game__board {
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+
+            & li {
+                width: 65px;
+                height: 65px;
+                margin: 5px;
+                border-radius: 5px;
+                background-color: #8380805e;
+                box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.568);
+                position: relative; 
+                transition: all 0.15s ease;
+
+                & .overlay__color {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    background-color: black;
+                    width: 100%;
+                    min-height: 10px;
+                    overflow: hidden;
+                    border-radius: inherit;
+                    transition: all 0.25s ease;
+                }
+
+                &.active {
+                    & .overlay__color {
+                        min-height: 100%;
+                    }
+                }
+
+                &:hover {
+                    background-color: #80838138;
+                }
+            }
+        }
+    }
+}
