@@ -134,5 +134,6 @@ function startTimer() {
     initColor();
     attactColorClick();
     attactEventButton();
+    gamrStatus = GAME_STATUS.FINISH;
     showButtonReplay();
 })();
