@@ -24,7 +24,7 @@ li {
   align-items: center;
   flex-direction: column;
   border-radius: 15px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.185);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.322);
 }
 #game__page .game__space h1 {
   padding: 10px 0 5px;
@@ -76,7 +76,7 @@ li {
   bottom: 0;
   background-color: black;
   width: 100%;
-  min-height: 10px;
+  min-height: 0px;
   overflow: hidden;
   border-radius: inherit;
   transition: all 0.25s ease;
