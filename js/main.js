@@ -1,6 +1,6 @@
 import { GAME_STATUS, GAME_TIME, PAIRS_COLOR } from "./constant.js";
 import { checkColorIsFull, getColorELementList, getColorListELement, getReplayButton, setTimerText } from "./selector.js";
-import { createTimer, getColorList, hideButtonReplay, showButtonReplay } from "./utils.js";
+import { createTimer, getColorList, hideButtonReplay, showButtonReplay , setBackgroungColor} from "./utils.js";
 
 
 // global variant
@@ -21,12 +21,12 @@ function handlerOnChange(seconds) {
 function handlerOnFinish() {
     setTimerText('GAME OVER');
     showButtonReplay();
-    gamrStatus = GAME_STATUS.PLAYING;
+    gamrStatus = GAME_STATUS.FINISH;
     selection = [];
 }
 
 function initColor() {
-
+    setBackgroungColor('#defcfc');
     const colorList = getColorList(PAIRS_COLOR);
     const liList = getColorELementList();
     liList.forEach((liItem , index) => {
@@ -55,6 +55,7 @@ function handlerColorElemtClick(liElement) {
 
     if(isMatch) {
 
+        setBackgroungColor(firstColor);
         const isWin =  checkColorIsFull();
         if(isWin) {
 
@@ -75,7 +76,7 @@ function handlerColorElemtClick(liElement) {
         selection[0].classList.remove('active');
         selection[1].classList.remove('active');
         selection = [];
-        gamrStatus = GAME_STATUS.PLAYING;
+        if(gamrStatus != GAME_STATUS.FINISH) gamrStatus = GAME_STATUS.PLAYING;
     }, 500);
 }
 
@@ -94,6 +95,8 @@ function attactColorClick() {
 
 function resetGame() {
     // reset Global
+    const buttonReplay = getReplayButton();
+    buttonReplay.textContent = "REPLAY";
     console.log('reset game');
     gamrStatus = GAME_STATUS.PLAYING;
     selection = [];   
@@ -131,5 +134,5 @@ function startTimer() {
     initColor();
     attactColorClick();
     attactEventButton();
-    startTimer();
+    showButtonReplay();
 })();

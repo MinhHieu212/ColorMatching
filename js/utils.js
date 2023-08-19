@@ -78,3 +78,9 @@ export function createTimer({seconds , onChange , onFinish}) {
         clear
     }
 }
+
+export function setBackgroungColor(color) {
+    const bgcolor = document.getElementById('game__page');
+    if(bgcolor)  bgcolor.style.backgroundColor = color;
+    else console.log('acdac');
+}
